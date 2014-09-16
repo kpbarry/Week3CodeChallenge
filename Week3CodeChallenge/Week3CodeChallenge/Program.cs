@@ -11,13 +11,33 @@ namespace Week3CodeChallenge
         static void Main(string[] args)
         {
             //EvenFibbonnacciSequencer(4000000);
-            LongestCollatzSequence();
+            FindNPrimes(2900);
+            //LongestCollatzSequence();
             Console.ReadKey();
         }
 
         static void FindNPrimes(long maxPrime)
         {
-
+            //Go from 1 to number
+            for (long i = 0; i <= maxPrime; i++)
+            {
+                //Check for prime
+                bool isPrime = true;
+                //Check for divisibility
+                for (long j = 2; j < i; j++) 
+                {
+                    if (i % j == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                //Write all numbers where isPrime is false
+                if (isPrime)
+                {
+                    Console.WriteLine(i+ " is prime.");
+                }
+            }
         }
 
         static void EvenFibbonnacciSequencer(int maxValue)
@@ -47,15 +67,20 @@ namespace Week3CodeChallenge
 
         static void LongestCollatzSequence()
         {
+            //Longest sequence number
             long number = 837799;
+            //Keep count of how many tries it took
             int count = 1;
+            //Keep going until number is 1
             while (number > 1)
             {
+                //Even, number = number / 2
                 if (number % 2 == 0)
                 {
                     count++;
                     number /= 2;
                 } 
+                //Odd, number = 3*number + 1
                 else
                 {
                     count++;
