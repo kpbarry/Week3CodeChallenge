@@ -11,7 +11,7 @@ namespace Week3CodeChallenge
         static void Main(string[] args)
         {
             //EvenFibbonnacciSequencer(4000000);
-            FindNPrimes(2900);
+            FindNPrimes(10001);
             //LongestCollatzSequence();
             Console.ReadKey();
         }
